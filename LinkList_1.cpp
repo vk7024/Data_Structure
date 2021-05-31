@@ -87,9 +87,9 @@ void Print_3(Node* p)	//  递归打印 归来时打印
 	*/
 	if (p == NULL)	
 	{
-		return;		// return每次会返回到调用递归函数的下一条语句
+		return;	// return每次会返回到调用递归函数的下一条语句
 	}
-	Print_3(p->next); //	继续打印下一个, 不理解递归时很难想到
+	Print_3(p->next); // 继续打印下一个, 不理解递归时很难想到
 	printf("%d ", p->data);	// 归来时打印, 所以会逆序打印
 }
 
@@ -171,15 +171,15 @@ void Delete_pos(int pos)
 		return;
 	}
 
-	//	temp1 指向要删结点的前一个结点
+	// temp1 指向要删结点的前一个结点
 	for (int i = 0; i < pos - 2; i++)
 	{
 		temp1 = temp1->next;
 	}
-	//	temp2 指向要删除的结点
-	Node* temp2 = temp1->next;	//	第n个结点
-	temp1->next = temp2->next;	//	第(n + 1) 个结点
-	delete temp2;	//	C free(temp2)
+	// temp2 指向要删除的结点
+	Node* temp2 = temp1->next;	// 第n个结点
+	temp1->next = temp2->next;	// 第(n + 1) 个结点
+	delete temp2;	// C free(temp2)
 
 }
 
@@ -205,7 +205,7 @@ void  Reverse_1()	  // 用迭代反转
 	{
 		next = current->next;	//	1. 先将当前节点的指针域保存
 		current->next = prev;	//	2. 让当前结点的指针域指向前一个结点
-		prev = current;	//	3.	前一个结点往后移
+		prev = current;		//	3. 前一个结点往后移
 		current = next;		//	4. 当前结点指向下一个结点
 	}
 	//	循环结束时, current next 都指向空, prev指向最后一个结点
