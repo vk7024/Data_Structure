@@ -1,40 +1,40 @@
 /*
-	 µ¥Á´±íÊµÏÖÒ»:
-	 Í·Ö¸Õë×÷Îª ¾Ö²¿±äÁ¿
+	 å•é“¾è¡¨å®ç°ä¸€:
+	 å¤´æŒ‡é’ˆä½œä¸º å…¨å±€å˜é‡
 */
 #include<stdio.h>
 #include<stdlib.h>
 #include<iostream>
 using namespace std;
 
-//¶¨Òå½áµã
+//å®šä¹‰ç»“ç‚¹
 struct Node {
-	int data;	//½áµãÊı¾İÓò
-	Node* next;	//½áµãÖ¸ÕëÓò
+	int data;	//ç»“ç‚¹æ•°æ®åŸŸ
+	Node* next;	//ç»“ç‚¹æŒ‡é’ˆåŸŸ
 };
 
 //typedef struct Node *LinkList, Node;
 
-//¶¨ÒåÒ»¸öÍ·Ö¸Õë
+//å®šä¹‰ä¸€ä¸ªå¤´æŒ‡é’ˆ
 Node* head;
 
-void Print_1();	//	´òÓ¡µ¥Á´±í
-void Print_2(Node* temp);	//	Ë³Ğò´òÓ¡µ¥Á´±í_µİ¹é
-void Print_3(Node* temp);	//	ÄæĞò´òÓ¡µ¥Á´±í_µİ¹é
+void Print_1();	//	æ‰“å°å•é“¾è¡¨
+void Print_2(Node* temp);	//	é¡ºåºæ‰“å°å•é“¾è¡¨_é€’å½’
+void Print_3(Node* temp);	//	é€†åºæ‰“å°å•é“¾è¡¨_é€’å½’
 
-void Insert_head(int data);	//	Í·²å
-void Insert_tail(int data); //	Î²²å
-void Insert_any(int data, int pos); //	ÈÎÒâÎ»ÖÃ²åÈë
+void Insert_head(int data);	//	å¤´æ’
+void Insert_tail(int data); //	å°¾æ’
+void Insert_any(int data, int pos); //	ä»»æ„ä½ç½®æ’å…¥
 
-void Delete_pos(int pos);	//	É¾³ıÎ»ÖÃposµÄÔªËØ
-void Delete_value(int value); //	É¾³ıµÚÒ»¸öÖµÎªvalueµÄ½áµã (´ı¸Ä½ø -> É¾³ıËùÓĞÖµÎªvalueµÄ½áµã)
+void Delete_pos(int pos);	//	åˆ é™¤ä½ç½®posçš„å…ƒç´ 
+void Delete_value(int value); //	åˆ é™¤ç¬¬ä¸€ä¸ªå€¼ä¸ºvalueçš„ç»“ç‚¹ (å¾…æ”¹è¿› -> åˆ é™¤æ‰€æœ‰å€¼ä¸ºvalueçš„ç»“ç‚¹)
 
-void Reverse_1();	//	·´×ªµ¥Á´±í_µü´ú
-void Reverse_2(Node* head);	// ·´×ªµ¥Á´±í_µİ¹é
+void Reverse_1();	//	åè½¬å•é“¾è¡¨_è¿­ä»£
+void Reverse_2(Node* head);	// åè½¬å•é“¾è¡¨_é€’å½’
 
 int main()
 {
-	head = NULL;	// 	Í·Ö¸ÕëÖÃ¿Õ
+	head = NULL;	// 	å¤´æŒ‡é’ˆç½®ç©º
 	Insert_tail(1);
 	Insert_tail(2);
 	Insert_tail(3);
@@ -52,7 +52,7 @@ int main()
 
 void Print_1()	
 {
-	//½¨Á¢Ò»¸öÁÙÊ±Ö¸Õë, Ö¸ÏòµÚÒ»¸öÔªËØ
+	//å»ºç«‹ä¸€ä¸ªä¸´æ—¶æŒ‡é’ˆ, æŒ‡å‘ç¬¬ä¸€ä¸ªå…ƒç´ 
 	Node* temp = head;
 	int cnt = 0;
 	cout << "List is: ";
@@ -63,13 +63,13 @@ void Print_1()
 		cnt++;
 	}
 	cout << endl;
-	cout << "Á´±íÖĞÓĞ" << cnt << "¸ö½áµã";
+	cout << "é“¾è¡¨ä¸­æœ‰" << cnt << "ä¸ªç»“ç‚¹";
 	cout << endl;
 }
 
-void Print_2(Node* p)	// µİ¹é´òÓ¡ µİÈ¥Ê±´òÓ¡ Ë³Ğò´òÓ¡
+void Print_2(Node* p)	// é€’å½’æ‰“å° é€’å»æ—¶æ‰“å° é¡ºåºæ‰“å°
 {
-	if (p == NULL)	// exit condition µİ¹éÖÕÖ¹Ìõ¼ş
+	if (p == NULL)	// exit condition é€’å½’ç»ˆæ­¢æ¡ä»¶
 	{
 		return;
 	}
@@ -77,33 +77,33 @@ void Print_2(Node* p)	// µİ¹é´òÓ¡ µİÈ¥Ê±´òÓ¡ Ë³Ğò´òÓ¡
 	Print_2(p->next);
 }
 
-void Print_3(Node* p)	//  µİ¹é´òÓ¡ ¹éÀ´Ê±´òÓ¡
+void Print_3(Node* p)	//  é€’å½’æ‰“å° å½’æ¥æ—¶æ‰“å°
 {
 	/*
-	* µİ¹éÖÕÖ¹Ìõ¼ş: 
-	*1.  Á´±íÎª¿ÕÖ±½Ó·µ»Ø »ò
-	*2.  µ½´ïÁ´±í½áÎ²Ê±·µ»Ø, ÓÉÓÚÇ°Ãæµ÷ÓÃµİ¹éº¯ÊıÊ±¿ª±ÙÁËºÜ¶àÕ»Ö¡, 
-	*	  ËùÒÔÃ¿´Î·µ»Øºó¶¼»áµ½´ÓÉÏ´Îº¯Êıµ÷ÓÃµÄÏÂÒ»ÌõÓï¾ä¿ªÊ¼Ö´ĞĞ
+	* é€’å½’ç»ˆæ­¢æ¡ä»¶: 
+	*1.  é“¾è¡¨ä¸ºç©ºç›´æ¥è¿”å› æˆ–
+	*2.  åˆ°è¾¾é“¾è¡¨ç»“å°¾æ—¶è¿”å›, ç”±äºå‰é¢è°ƒç”¨é€’å½’å‡½æ•°æ—¶å¼€è¾Ÿäº†å¾ˆå¤šæ ˆå¸§, 
+	*	  æ‰€ä»¥æ¯æ¬¡è¿”å›åéƒ½ä¼šåˆ°ä»ä¸Šæ¬¡å‡½æ•°è°ƒç”¨çš„ä¸‹ä¸€æ¡è¯­å¥å¼€å§‹æ‰§è¡Œ
 	*/
 	if (p == NULL)	
 	{
-		return;		// returnÃ¿´Î»á·µ»Øµ½µ÷ÓÃµİ¹éº¯ÊıµÄÏÂÒ»ÌõÓï¾ä
+		return;		// returnæ¯æ¬¡ä¼šè¿”å›åˆ°è°ƒç”¨é€’å½’å‡½æ•°çš„ä¸‹ä¸€æ¡è¯­å¥
 	}
-	Print_3(p->next); //	¼ÌĞø´òÓ¡ÏÂÒ»¸ö, ²»Àí½âµİ¹éÊ±ºÜÄÑÏëµ½
-	printf("%d ", p->data);	// ¹éÀ´Ê±´òÓ¡, ËùÒÔ»áÄæĞò´òÓ¡
+	Print_3(p->next); //	ç»§ç»­æ‰“å°ä¸‹ä¸€ä¸ª, ä¸ç†è§£é€’å½’æ—¶å¾ˆéš¾æƒ³åˆ°
+	printf("%d ", p->data);	// å½’æ¥æ—¶æ‰“å°, æ‰€ä»¥ä¼šé€†åºæ‰“å°
 }
 
 
 
-void Insert_head(int data)//Í·²å
+void Insert_head(int data)//å¤´æ’
 {
-	//´´½¨Ò»¸ö½áµã
+	//åˆ›å»ºä¸€ä¸ªç»“ç‚¹
 	Node* temp = new Node;
 	temp->data = data;
 	temp->next = NULL;
 
 	if (head == NULL)
-	{//Èç¹ûÖ»ÓĞÒ»¸ö½áµã, Ö±½Ó²åÔÚºóÃæ
+	{//å¦‚æœåªæœ‰ä¸€ä¸ªç»“ç‚¹, ç›´æ¥æ’åœ¨åé¢
 		head = temp;
 		return;
 	}
@@ -113,7 +113,7 @@ void Insert_head(int data)//Í·²å
 
 void  Insert_tail(int data)
 {
-	//´´½¨Ò»¸ö½áµã
+	//åˆ›å»ºä¸€ä¸ªç»“ç‚¹
 	Node* temp = new Node;
 	temp->data = data;
 	temp->next = NULL;
@@ -123,7 +123,7 @@ void  Insert_tail(int data)
 	{
 		head = temp;
 	}
-	//Èç¹ûhead != NULL ÓÃÁíÒ»¸öÖ¸Õë±éÀúµ½Á´±í×îºóÒ»¸ö½áµã
+	//å¦‚æœhead != NULL ç”¨å¦ä¸€ä¸ªæŒ‡é’ˆéå†åˆ°é“¾è¡¨æœ€åä¸€ä¸ªç»“ç‚¹
 	else
 	{
 		while (temp2->next != NULL) {
@@ -135,24 +135,24 @@ void  Insert_tail(int data)
 
 void Insert_any(int data, int pos)
 {
-	//´´½¨Ò»¸ö½áµã
+	//åˆ›å»ºä¸€ä¸ªç»“ç‚¹
 	Node* temp = new Node;
 	temp->data = data;
 	temp->next = NULL;
 
-	//²åÈëÔÚµÚÒ»¸öÎ»ÖÃ
+	//æ’å…¥åœ¨ç¬¬ä¸€ä¸ªä½ç½®
 	if (pos == 1)
-	{//Á´±íÊÇ·ñÎª¿Õ¶¼¿ÉÒÔÓÃÕâ¸ö·½·¨
+	{//é“¾è¡¨æ˜¯å¦ä¸ºç©ºéƒ½å¯ä»¥ç”¨è¿™ä¸ªæ–¹æ³•
 		temp->next = head;
 		head = temp;
 		return;
 	}
 
-	//²åÈëÔÚÆäËûÎ»ÖÃ
+	//æ’å…¥åœ¨å…¶ä»–ä½ç½®
 	Node* temp2 = head;
 	for (int i = 0; i < pos - 2; i++)
-	{ //ÌØ±ğ×¢ÒâÕâÀïÒª±éÀúµ½ÎªÊ²Ã´pos-2
-		temp2 = temp2->next; //tempÖ¸ÏòÒª²åÈëÎ»ÖÃµÄÇ°Ò»¸öÎ»ÖÃ
+	{ //ç‰¹åˆ«æ³¨æ„è¿™é‡Œè¦éå†åˆ°ä¸ºä»€ä¹ˆpos-2
+		temp2 = temp2->next; //tempæŒ‡å‘è¦æ’å…¥ä½ç½®çš„å‰ä¸€ä¸ªä½ç½®
 	}
 	temp->next = temp2->next;
 	temp2->next = temp;
@@ -160,10 +160,10 @@ void Insert_any(int data, int pos)
 
 void Delete_pos(int pos)
 {
-	//¶¨ÒåÁ½¸öÖ¸Õë
+	//å®šä¹‰ä¸¤ä¸ªæŒ‡é’ˆ
 	Node* temp1 = head;
 
-	//	Ö»ÓĞÒ»¸ö½áµã
+	//	åªæœ‰ä¸€ä¸ªç»“ç‚¹
 	if (pos == 1)
 	{
 		head = temp1->next;
@@ -171,14 +171,14 @@ void Delete_pos(int pos)
 		return;
 	}
 
-	//	temp1 Ö¸ÏòÒªÉ¾½áµãµÄÇ°Ò»¸ö½áµã
+	//	temp1 æŒ‡å‘è¦åˆ ç»“ç‚¹çš„å‰ä¸€ä¸ªç»“ç‚¹
 	for (int i = 0; i < pos - 2; i++)
 	{
 		temp1 = temp1->next;
 	}
-	//	temp2 Ö¸ÏòÒªÉ¾³ıµÄ½áµã
-	Node* temp2 = temp1->next;	//	µÚn¸ö½áµã
-	temp1->next = temp2->next;	//	µÚ(n + 1) ¸ö½áµã
+	//	temp2 æŒ‡å‘è¦åˆ é™¤çš„ç»“ç‚¹
+	Node* temp2 = temp1->next;	//	ç¬¬nä¸ªç»“ç‚¹
+	temp1->next = temp2->next;	//	ç¬¬(n + 1) ä¸ªç»“ç‚¹
 	delete temp2;	//	C free(temp2)
 
 }
@@ -187,7 +187,7 @@ void Delete_value(int value)
 {
 	Node* temp1 = head;
 
-	//Èç¹ûÔÚµÚÒ»¸ö½áµã
+	//å¦‚æœåœ¨ç¬¬ä¸€ä¸ªç»“ç‚¹
 	if (temp1->data == value)
 	{
 		head = temp1->next;
@@ -196,20 +196,20 @@ void Delete_value(int value)
 	}
 }
 
-void  Reverse_1()	  // ÓÃµü´ú·´×ª
+void  Reverse_1()	  // ç”¨è¿­ä»£åè½¬
 {
-	Node* current, * prev, * next;	//	¶¨ÒåÈı¸öÖ¸Õë, ·Ö±ğÖ¸Ïòµ±Ç°½áµã, Ç°Ò»¸ö½Úµã, ÏÂÒ»¸ö½áµã
+	Node* current, * prev, * next;	//	å®šä¹‰ä¸‰ä¸ªæŒ‡é’ˆ, åˆ†åˆ«æŒ‡å‘å½“å‰ç»“ç‚¹, å‰ä¸€ä¸ªèŠ‚ç‚¹, ä¸‹ä¸€ä¸ªç»“ç‚¹
 	current = head;
-	prev = NULL;	//	¿ªÊ¼Ê±Ç°Ò»¸ö½áµãÖ¸Ïò¿Õ
+	prev = NULL;	//	å¼€å§‹æ—¶å‰ä¸€ä¸ªç»“ç‚¹æŒ‡å‘ç©º
 	while (current != NULL)
 	{
-		next = current->next;	//	1. ÏÈ½«µ±Ç°½ÚµãµÄÖ¸ÕëÓò±£´æ
-		current->next = prev;	//	2. ÈÃµ±Ç°½áµãµÄÖ¸ÕëÓòÖ¸ÏòÇ°Ò»¸ö½áµã
-		prev = current;	//	3.	Ç°Ò»¸ö½áµãÍùºóÒÆ
-		current = next;		//	4. µ±Ç°½áµãÖ¸ÏòÏÂÒ»¸ö½áµã
+		next = current->next;	//	1. å…ˆå°†å½“å‰èŠ‚ç‚¹çš„æŒ‡é’ˆåŸŸä¿å­˜
+		current->next = prev;	//	2. è®©å½“å‰ç»“ç‚¹çš„æŒ‡é’ˆåŸŸæŒ‡å‘å‰ä¸€ä¸ªç»“ç‚¹
+		prev = current;	//	3.	å‰ä¸€ä¸ªç»“ç‚¹å¾€åç§»
+		current = next;		//	4. å½“å‰ç»“ç‚¹æŒ‡å‘ä¸‹ä¸€ä¸ªç»“ç‚¹
 	}
-	//	Ñ­»·½áÊøÊ±, current next ¶¼Ö¸Ïò¿Õ, prevÖ¸Ïò×îºóÒ»¸ö½áµã
-	head = prev;	//	½«×îºóÒ»¸ö½áµã¸ÄÎªÍ·½áµã
+	//	å¾ªç¯ç»“æŸæ—¶, current next éƒ½æŒ‡å‘ç©º, prevæŒ‡å‘æœ€åä¸€ä¸ªç»“ç‚¹
+	head = prev;	//	å°†æœ€åä¸€ä¸ªç»“ç‚¹æ”¹ä¸ºå¤´ç»“ç‚¹
 
 	//Node* cur, * prev, * next;
 	//prev = NULL;
@@ -218,8 +218,8 @@ void  Reverse_1()	  // ÓÃµü´ú·´×ª
 	//while (cur != NULL)
 	//{
 	//	/*
-	//	  Õâ¶Î´úÂëÓĞÒ»¸ö´íÎó, µ±cur == NULLÊ±
-	//	  next ÒÑ¾­ÎªNULL, ÔÙÖ´ĞĞnext = next->next Ê±»á³öÎÊÌâ?
+	//	  è¿™æ®µä»£ç æœ‰ä¸€ä¸ªé”™è¯¯, å½“cur == NULLæ—¶
+	//	  next å·²ç»ä¸ºNULL, å†æ‰§è¡Œnext = next->next æ—¶ä¼šå‡ºé—®é¢˜?
 	//	*/
 	//	cur->next = prev;
 	//	prev = cur;
@@ -230,19 +230,19 @@ void  Reverse_1()	  // ÓÃµü´ú·´×ª
 	return;
 }
 
-void Reverse_2(Node*p)	// µİ¹é·´×ª
-{	// ½«È«¾Ö±äÁ¿haed×÷Îª²ÎÊı´«Èë, ¼´ p = head;
+void Reverse_2(Node*p)	// é€’å½’åè½¬
+{	// å°†å…¨å±€å˜é‡haedä½œä¸ºå‚æ•°ä¼ å…¥, å³ p = head;
 	if (p->next == NULL)
-	{//µ½´ï×îºóÒ»¸ö½áµãÊ±, ĞŞ¸Ähead, Ê¹ËûÖ¸Ïò×îºóÒ»¸ö½áµã
+	{//åˆ°è¾¾æœ€åä¸€ä¸ªç»“ç‚¹æ—¶, ä¿®æ”¹head, ä½¿ä»–æŒ‡å‘æœ€åä¸€ä¸ªç»“ç‚¹
 		head = p;
 		return;
 	}
 	Reverse_2(p->next);
-	// ¹éÀ´Ê±½áÊøÊ±Ö´ĞĞÏÂÃæµÄÓï¾ä
-	//	ÒÔµÚÒ»´Î¹éÀ´ÎªÀı, ÓÉÓÚ×îºóÒ»´Îµİ¹éº¯Êıµ÷ÓÃ½áÊø, ´ËÊ±pÖĞ±£´æµÄµ¹ÊıµÚ¶ş¸ö½áµãµÄµØÖ·
-	Node* q = p->next;		// ĞÂ½¨Ò»¸öÖ¸Õë, ÈÃËüÖ¸Ïò×îºóÒ»¸ö½áµã
-	q->next = p;	// ÇĞ¸î½áµã, Ê¹Ëü (×îºóÒ»¸ö½áµã) Ö¸ÏòÇ°Ò»¸ö½áµã (µ¹ÊıµÚ¶ş¸ö½áµã)
-	p->next = NULL;	// È»ºóÈÃÇ°Ò»¸ö½áµã (µ¹ÊıµÚ¶ş¸ö½áµã) Ö¸ÏòNULL
+	// å½’æ¥æ—¶ç»“æŸæ—¶æ‰§è¡Œä¸‹é¢çš„è¯­å¥
+	//	ä»¥ç¬¬ä¸€æ¬¡å½’æ¥ä¸ºä¾‹, ç”±äºæœ€åä¸€æ¬¡é€’å½’å‡½æ•°è°ƒç”¨ç»“æŸ, æ­¤æ—¶pä¸­ä¿å­˜çš„å€’æ•°ç¬¬äºŒä¸ªç»“ç‚¹çš„åœ°å€
+	Node* q = p->next;		// æ–°å»ºä¸€ä¸ªæŒ‡é’ˆ, è®©å®ƒæŒ‡å‘æœ€åä¸€ä¸ªç»“ç‚¹
+	q->next = p;	// åˆ‡å‰²ç»“ç‚¹, ä½¿å®ƒ (æœ€åä¸€ä¸ªç»“ç‚¹) æŒ‡å‘å‰ä¸€ä¸ªç»“ç‚¹ (å€’æ•°ç¬¬äºŒä¸ªç»“ç‚¹)
+	p->next = NULL;	// ç„¶åè®©å‰ä¸€ä¸ªç»“ç‚¹ (å€’æ•°ç¬¬äºŒä¸ªç»“ç‚¹) æŒ‡å‘NULL
 }
 
 
